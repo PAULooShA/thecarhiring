@@ -4,13 +4,12 @@ import java.util.Date;
 import java.util.List;
 
 public class Car {
-    private String name;
-    private String id;
-    private Date take;
-    private Date ret;
-    private Boolean isbeaten;
-    List<String> carlist;
-    Car(String name, String id, Date take, Date ret, Boolean isbeaten) {
+    protected String name;
+    protected String id;
+    protected Date take;
+    protected Date ret;
+    protected  boolean isbeaten;
+    Car(String name, String id, Date take, Date ret, boolean isbeaten) {
         this.name = name;
         this.id = id;
         this.take = take;
@@ -18,18 +17,4 @@ public class Car {
         this.isbeaten = isbeaten;
     }
 
-    public List<String> getcarinfo()
-    {
-        return carlist;
-    }
-
-    public List<String> addcar()
-    {
-        return carlist;
-    }
-
-    public List<String> deletecar()
-    {
-        return carlist;
-    }
 }

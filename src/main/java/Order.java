@@ -2,16 +2,16 @@ package main.java;
 
 import java.util.Date;
 
-public class Order {
-    private String clientname;
-    private String clientpasspot;
-    private Date orderstart;
-    private Date orderend;
-    private String carname;
-    private String id;
-    private String administrator;
-    private  int price;
-    private Boolean ispaid;
+public class Order{
+    protected String clientname;
+    protected String clientpasspot;
+    protected Date orderstart;
+    protected Date orderend;
+    protected String carname;
+    protected String id;
+    protected String administrator;
+    protected  int price;
+    protected Boolean ispaid;
 
 
     Order(String clientname, String clientpasspot, Date orderstart, Date orderend, String carname, String id, String administrator, int price)
@@ -24,10 +24,6 @@ public class Order {
         this.id = id;
         this.administrator = administrator;
         this.price = price;
-    }
-    public Boolean ispaid()
-    {
-        return ispaid;
     }
 
 
