@@ -64,7 +64,6 @@ public class Main {
         {
             Application app = new Application(n1.car, n1.client, n1.admin, 50, "Reason of canceling");
             System.out.println(app.reason);
-            System.out.println(app.administrator);
         }
     }
 }
