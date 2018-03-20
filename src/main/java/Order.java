@@ -3,27 +3,22 @@ package main.java;
 import java.util.Date;
 
 public class Order{
-    protected String clientname;
-    protected String clientpasspot;
-    protected Date orderstart;
-    protected Date orderend;
-    protected String carname;
-    protected String id;
-    protected String administrator;
+    protected Car car;
+    protected Client client;
     protected  int price;
     protected Boolean ispaid;
+    protected Administrator admin;
+    protected boolean iscanceled;
 
 
-    Order(String clientname, String clientpasspot, Date orderstart, Date orderend, String carname, String id, String administrator, int price)
+    Order(Car car, Client client, Boolean ispaid, int price, Administrator admin, boolean iscanceled)
     {
-        this.clientname = clientname;
-        this.clientpasspot = clientpasspot;
-        this.orderstart = orderstart;
-        this.orderend = orderend;
-        this.carname = carname;
-        this.id = id;
-        this.administrator = administrator;
+        this.car = car;
+        this.client = client;
+        this.ispaid = ispaid;
         this.price = price;
+        this.admin = admin;
+        this.iscanceled = iscanceled;
     }
 
 
