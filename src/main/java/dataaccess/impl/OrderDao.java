@@ -15,13 +15,13 @@ public class OrderDao extends AbstractDao<OrderTable, Order> implements Serializ
     }
 
     @Override
-    public void saveNew(Order newCircle) {
+    public void saveNew(Order newOrder) {
         // set ID
-        newCircle.setId(getNextId());
+        newOrder.setId(getNextId());
         // get existing data
         final OrderTable orderTable = deserializeFromXml();
         // add new row
-        orderTable.getRows().add(newCircle);
+        orderTable.getRows().add(newOrder);
         // save data
         serializeToXml(orderTable);
         //
