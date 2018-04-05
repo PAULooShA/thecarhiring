@@ -1,0 +1,44 @@
+<table.OrderTable>
+  <rows>
+    <system.Order>
+      <id>18011633553524</id>
+      <car>
+        <name>VW Polo</name>
+        <price>1</price>
+        <isbeaten>false</isbeaten>
+        <number>KH-2222</number>
+      </car>
+      <client>
+        <name>Kevlak Pavel</name>
+        <passport>KH2356</passport>
+        <money>20</money>
+      </client>
+      <admin>
+        <name>admin</name>
+      </admin>
+      <isCanceled>false</isCanceled>
+      <startdate>2018-05-20 21:00:00.0 UTC</startdate>
+      <retdate>2018-04-25 10:56:18.510 UTC</retdate>
+    </system.Order>
+    <system.Order>
+      <id>18168618896937</id>
+      <car>
+        <name>VW Polo</name>
+        <price>1</price>
+        <isbeaten>false</isbeaten>
+        <number>KH-2234</number>
+      </car>
+      <client>
+        <name>Kozun Igor</name>
+        <passport>KH654</passport>
+        <money>23</money>
+      </client>
+      <admin>
+        <name>admin</name>
+      </admin>
+      <isCanceled>false</isCanceled>
+      <startdate>2018-04-22 21:00:00.0 UTC</startdate>
+      <retdate>2018-04-17 10:59:07.628 UTC</retdate>
+    </system.Order>
+  </rows>
+</table.OrderTable>

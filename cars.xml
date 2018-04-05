@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="9.0.4" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="system.Car">
+    <void property="isbeaten">
+     <boolean>false</boolean>
+    </void>
+    <void property="name">
+     <string>Renault Logan</string>
+    </void>
+    <void property="number">
+     <string>KH-2222</string>
+    </void>
+    <void property="price">
+     <int>13</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="system.Car">
+    <void property="isbeaten">
+     <boolean>false</boolean>
+    </void>
+    <void property="name">
+     <string>VW Passat</string>
+    </void>
+    <void property="number">
+     <string>KH-3504</string>
+    </void>
+    <void property="price">
+     <int>15</int>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
