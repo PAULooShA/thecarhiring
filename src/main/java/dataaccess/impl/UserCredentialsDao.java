@@ -31,25 +31,6 @@ public class UserCredentialsDao extends AbstractDao<UserCredentialsTable, UserCr
     }
 
     @Override
-    public void update(UserCredentials entity) {
-        // get existing data
-        final UserCredentialsTable userCredentialsTable = deserializeFromXml();
-        // find by ID
-        for (final UserCredentials row : userCredentialsTable.getRows()) {
-            if (row.getId().equals(entity.getId())) {
-                // found!!!
-                // copy data
-                row.setEmail(entity.getEmail());
-                row.setPassword(entity.getPassword());
-                row.setRole(entity.getRole());
-                break;
-            }
-        }
-        // save updated table
-        serializeToXml(userCredentialsTable);
-    }
-
-    @Override
     public UserCredentials get(Long id) {
         // get existing data
         final UserCredentialsTable userCredentialsTable = deserializeFromXml();

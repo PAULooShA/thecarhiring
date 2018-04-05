@@ -7,10 +7,26 @@
      <boolean>false</boolean>
     </void>
     <void property="name">
-     <string>Renault Logan</string>
+     <string>VW Passat</string>
     </void>
     <void property="number">
-     <string>KH-2222</string>
+     <string>KH-321</string>
+    </void>
+    <void property="price">
+     <int>12</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="system.Car">
+    <void property="isbeaten">
+     <boolean>false</boolean>
+    </void>
+    <void property="name">
+     <string>Lada XRay</string>
+    </void>
+    <void property="number">
+     <string>YT-3022</string>
     </void>
     <void property="price">
      <int>13</int>
@@ -23,13 +39,13 @@
      <boolean>false</boolean>
     </void>
     <void property="name">
-     <string>VW Passat</string>
+     <string>VW Polo</string>
     </void>
     <void property="number">
-     <string>KH-3504</string>
+     <string>YY-244</string>
     </void>
     <void property="price">
-     <int>15</int>
+     <int>10</int>
     </void>
    </object>
   </void>

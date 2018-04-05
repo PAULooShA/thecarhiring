@@ -19,35 +19,12 @@ public class OrderDao extends AbstractDao<OrderTable, Order> implements Serializ
         // set ID
         newCircle.setId(getNextId());
         // get existing data
-        final OrderTable circleTable = deserializeFromXml();
-        // add new row
-        circleTable.getRows().add(newCircle);
-        // save data
-        serializeToXml(circleTable);
-        //
-    }
-
-    @Override
-    public void update(Order entity) {
-        // get existing data
         final OrderTable orderTable = deserializeFromXml();
-        // find by ID
-        for (final Order row : orderTable.getRows()) {
-            if (row.getId().equals(entity.getId())) {
-                // found!!!
-                // copy data
-                row.setCar(entity.getCar());
-                row.setClient(entity.getClient());
-                row.setUserList(entity.getUserList());
-                row.setAdmin(entity.getAdmin());
-                row.setIsCanceled(entity.getIsCanceled());
-                row.setStartdate(entity.getStartdate());
-                row.setStartdate(entity.getStartdate());
-                break;
-            }
-        }
-        // save updated table
+        // add new row
+        orderTable.getRows().add(newCircle);
+        // save data
         serializeToXml(orderTable);
+        //
     }
 
     @Override

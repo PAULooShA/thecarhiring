@@ -6,8 +6,6 @@ public interface IXmlDao<E> {
 
     void saveNew(E entity);
 
-    void update(E entity);
-
     E get(Long id);
 
     List<E> getAll();

@@ -54,6 +54,9 @@ public class CarInfo {
         c = new Car(name,isbeaten,price, number);
         map.add(c);
     }
+    public void AddCar(Car c){
+        map.add(c);
+    }
     File mapFile = new File("cars.xml");
     public void saveInfoToFile(){
         try {

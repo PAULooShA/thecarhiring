@@ -81,52 +81,78 @@ public class Main {
                     System.out.println(o1.client.name + " " + o1.car.name + " id: " + o1.getId());
 
             }
-            if (n == 2) {
-                String name, passport;
-                int money, s1;
-                System.out.println("Enter your name: ");
-                name = in.nextLine();
-                System.out.println("Enter your passport: ");
-                passport = in.nextLine();
-                System.out.println("Amount you are ready to spend: ");
-                money = Integer.parseInt(in.nextLine());
-                Client client = new Client(name, passport, money);
-                System.out.println("1. Create Order");
-                s1 = Integer.parseInt(in.nextLine());
-                switch (s1) {
-                    case 1:
-                        System.out.println("Cars available: ");
-                        cars.openInfoFromFile();
-                        for (Car c : cars.map) {
-                            System.out.println(c.name);
-                        }
-                        System.out.println("Write the car u want to take");
-                        String carname = in.nextLine();
-                        System.out.println("Write start date of offering");
-                        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-                        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                        Date startdate = sdf.parse(br.readLine());
-                        System.out.println("Period of time you take time");
-                        Integer per;
-                        per = Integer.parseInt(in.nextLine());
-                        instance.setTime(date);
-                        instance.add(Calendar.DAY_OF_MONTH, per);
-                        Date retdate = instance.getTime();
-                        for (Car car1 : cars.map) {
-                            if (car1.name.equals(carname)) {
-                                if (client.money >= car1.price) {
-                                    Order newOrder = new Order(car1, client, administrator, false, startdate, retdate);
-                                    System.out.println(client.name + " you can use " + car1.name + " from " + startdate + " to " + retdate);
-                                    cars.DeleteCar(car1.name);
-                                    cars.saveInfoToFile();
-                                    orderDao.saveNew(newOrder);
-                                } else {
-                                    System.out.println("U dont have enough money");
-                                }
+        }
+        if (n == 2) {
+            String name, passport;
+            int money, s1;
+            System.out.println("Enter your name: ");
+            name = in.nextLine();
+            System.out.println("Enter your passport: ");
+            passport = in.nextLine();
+            System.out.println("Amount you are ready to spend: ");
+            money = Integer.parseInt(in.nextLine());
+            Client client = new Client(name, passport, money);
+            System.out.println("1. Create Order");
+            System.out.println("2. Return car");
+            s1 = Integer.parseInt(in.nextLine());
+            switch (s1) {
+                case 1:
+                    System.out.println("Cars available: ");
+                    cars.openInfoFromFile();
+                    for (Car c : cars.map) {
+                        System.out.println(c.name);
+                    }
+                    System.out.println("Write the car u want to take");
+                    String carname = in.nextLine();
+                    System.out.println("Write start date of offering");
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+                    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                    Date startdate = sdf.parse(br.readLine());
+                    System.out.println("Period of time you take time");
+                    Integer per;
+                    per = Integer.parseInt(in.nextLine());
+                    instance.setTime(date);
+                    instance.add(Calendar.DAY_OF_MONTH, per);
+                    Date retdate = instance.getTime();
+                    for (Car car1 : cars.map) {
+                        if (car1.name.equals(carname)) {
+                            if (client.money >= car1.price) {
+                                Order newOrder = new Order(car1, client, administrator, false, startdate, retdate, 0);
+                                System.out.println(client.name + " you can use " + car1.name + " from " + startdate + " to " + retdate);
+                                cars.openInfoFromFile();
+                                cars.DeleteCar(car1.name);
+                                cars.saveInfoToFile();
+                                orderDao.saveNew(newOrder);
+                            } else {
+                                System.out.println("U dont have enough money");
                             }
                         }
-                        break;
-                }
+                    }
+                    break;
+                case 2:
+                    System.out.println("Does car need repair?");
+                    String rep = in.nextLine();
+                    List<Order> orderList = orderDao.getAll();
+                    for (Order o : orderList) {
+                        if(o.client.name.equals(name)){
+                            if(rep.equals("yes")){o.isCanceled = true; o.repairprice = o.car.price / 3;}
+                            if(o.isCanceled == false){
+                                orderDao.delete(o.getId());
+                                cars.openInfoFromFile();
+                                cars.AddCar(o.car);
+                                cars.saveInfoToFile();
+                            }
+                            else{
+                                if(client.money>=o.repairprice) {
+                                    orderDao.delete(o.getId());
+                                    cars.openInfoFromFile();
+                                    cars.AddCar(o.car);
+                                    cars.saveInfoToFile();
+                                }
+                                else {System.out.println("You should to pay for repairing . You dont have enough money");}
+                            }
+                        }
+                    }
             }
         }
     }

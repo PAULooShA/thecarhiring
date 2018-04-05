@@ -12,11 +12,12 @@ public class Order extends AbstractModel {
     protected Boolean isPaid;
     protected Administrator admin;
     protected Boolean isCanceled;
+    protected int repairprice;
     protected Date startdate;
     protected Date retdate;
 
 
-    public Order(Car car, Client client, Administrator admin, Boolean isCanceled, Date startdate, Date retdate)
+    public Order(Car car, Client client, Administrator admin, Boolean isCanceled, Date startdate, Date retdate, int repairprice)
     {
         this.car = car;
         this.client = client;
@@ -24,6 +25,7 @@ public class Order extends AbstractModel {
         this.isCanceled = isCanceled;
         this.startdate = startdate;
         this.retdate = retdate;
+        this.repairprice = repairprice;
     }
 
     public Order(){}
@@ -37,6 +39,10 @@ public class Order extends AbstractModel {
     public void setUserList(List<UserProfile> userList) {
         this.userList = userList;
     }
+
+    public int getRepairprice(){return repairprice;}
+
+    public void setRepairprice(int repairprice){this.repairprice = repairprice;}
 
     public Car getCar(){
         return car;
@@ -52,14 +58,6 @@ public class Order extends AbstractModel {
 
     public void setClient(Client client) {
         this.client = client;
-    }
-
-    public Boolean getIsPaid() {
-        return isPaid;
-    }
-
-    public void setIsPaid(Boolean isPaid) {
-        this.isPaid = isPaid;
     }
 
     public Administrator getAdmin()
